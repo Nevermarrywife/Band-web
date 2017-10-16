@@ -1,0 +1,9 @@
+label{
+	display: block;
+}
+fieldset{
+	border:0;
+}
+input.placeholder{
+	color: red;
+}
