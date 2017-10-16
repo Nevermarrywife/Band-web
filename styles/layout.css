@@ -6,7 +6,7 @@ section,header,article,nav{
 	margin: 0;
 }
 body{
-	margin: 1em 10%;
+	margin: 3em auto;
 	background-image:url(../images/background.gif);
 	background-attachment: fixed; 
 	background-position: top left;
