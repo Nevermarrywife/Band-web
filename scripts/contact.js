@@ -1,4 +1,4 @@
-function resetFields(whichform){
+/*function resetFields(whichform){
 	if(Modernizr.input.placeholder)  return;
 	for(var i=0;i<whichform.elements.length;i++){
 		var element = whichform.elements[i];
@@ -35,7 +35,7 @@ function prepareForms(){
 		}
 
 	}
-}
+}*/
 
 function getHTTPObject(){
     if(typeof XMLHttpRequest =="undefind")
@@ -51,7 +51,7 @@ function getHTTPObject(){
     return new XMLHttpRequest();
 }
 
-function displayAjaxLoading(element){
+/*function displayAjaxLoading(element){
 	while(element.hasChildNodes()){
 		element.removeChild(element.lastChild);
 	}
@@ -64,7 +64,7 @@ function displayAjaxLoading(element){
 function submitFormWithAjax(whichform,thetarget){
 	var request = getHTTPObject();
 	if(!request) {return false;}
-	displayAjaxLoading(thetarget);
+	// displayAjaxLoading(thetarget);
 	var dataParts = [];
 	var element;
 	for(var i=0;i<whichform.elements.length;i++){
@@ -90,4 +90,22 @@ function submitFormWithAjax(whichform,thetarget){
 	}
 	request.send(data);
 	return true;
-};
+};*/
+
+
+document.getElementById('contentbtn').onclick = function (){
+	var request = getHTTPObject();
+	request.open("POST",'hello.php');
+	request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	request.send();
+	request.onreadystatechange =function(){
+				if(request.readyState == 4){
+					if(request.status == 200){
+						document.getElementById('ajaxifo').innerHTML = request.responseText;
+					}else{
+						alert("error:"+request.status)
+					}
+				}
+			}
+	return false;
+}
