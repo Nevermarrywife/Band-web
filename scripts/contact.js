@@ -95,8 +95,8 @@ function submitFormWithAjax(whichform,thetarget){
 
 document.getElementById('contentbtn').onclick = function (){
 	var request = getHTTPObject();
-	request.open("POST",'hello.php');
-	request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	request.open("GET",'hello.php');
+	// request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 	request.send();
 	request.onreadystatechange =function(){
 				if(request.readyState == 4){
@@ -105,6 +105,8 @@ document.getElementById('contentbtn').onclick = function (){
 					}else{
 						alert("error:"+request.status)
 					}
+				}else{
+					alert(request.readyState)
 				}
 			}
 	return false;
